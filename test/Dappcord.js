@@ -69,7 +69,7 @@ let deployer,user;
    })
     describe ("withdrawing", ()=>{
       const ID = 1;
-      const AMOUNT = ethers.utils.paraUnits("10", "ether");  
+      const AMOUNT = ethers.utils.parseUnits("10", "ether");  
       let balanceBefore;
       beforeEach(async()=>{
         balanceBefore = await ethers.provider.getBalance(deployer.address); //getting the balance of the deployer before the withdrawl
@@ -80,7 +80,7 @@ let deployer,user;
       })
       it("Updates the owner balance", async()=>{
         const balanceAfter = await ethers.provider.getBalance(deployer.address);
-        expect(balnceAfter).to.be.above(balanceBefore); //checking if the balance after the withdrawl is greater than the balance before the withdrawl
+        expect(balanceAfter).to.be.above(balanceBefore); //checking if the balance after the withdrawl is greater than the balance before the withdrawl
       })
       it ("Updates the contract balance",async()=>{
         const result  = await ethers.provider.getBalance(dappcord.address);
